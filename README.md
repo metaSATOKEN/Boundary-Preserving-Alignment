@@ -83,7 +83,13 @@ Please cite the archived edition by DOI:
 }
 ```
 
-For the deposited paper's license and archive metadata, consult the [Zenodo record](https://zenodo.org/records/23969376). This repository does not assign a separate software license to its build-support files.
+## License
+
+Copyright (c) 2026 Kentaro Sato.
+
+Unless otherwise indicated, the original material in this repository, including the paper, English and Japanese manuscripts, figures, documentation, and bundled TeX layout sources, is licensed under the [Creative Commons Attribution 4.0 International license (CC BY 4.0)](LICENSE), matching the [Zenodo deposit](https://zenodo.org/records/23969376).
+
+You may share and adapt the licensed material, including commercially, provided you give appropriate credit, link to the license, and indicate changes. See the [full license text](LICENSE) for the terms. Third-party materials, fonts, and LaTeX packages retain their respective licenses and are not relicensed by this notice.
 
 ## 日本語
 

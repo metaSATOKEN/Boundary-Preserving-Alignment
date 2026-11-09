@@ -1,6 +1,7 @@
 cff-version: 1.2.0
 message: "Please cite the archived paper using this metadata and its Zenodo DOI."
 type: article
+license: CC-BY-4.0
 title: >-
   Boundary-Preserving Alignment: From Bounded Artifacts to Bounded Authority:
   Implementing Safety in Long-Horizon Human-AI Systems Through the Governance
