@@ -1,0 +1,195 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{gachi-report}[2026/08/25 Technical report series style]
+
+\RequirePackage{iftex}
+\ifPDFTeX
+  \PackageError{gachi-report}{LuaLaTeX or XeLaTeX is required}{}
+\fi
+
+\RequirePackage{fontspec}
+\RequirePackage{amsmath,mathtools}
+\RequirePackage{unicode-math}
+\setmainfont{TeX Gyre Pagella}
+\setsansfont{TeX Gyre Heros}[Scale=0.94]
+\setmonofont{TeX Gyre Cursor}[Scale=0.88]
+\setmathfont{TeX Gyre Pagella Math}
+\RequirePackage{luatexja-fontspec}
+% Preserve the deposited edition's fonts where available; otherwise use TeX Live fonts.
+\IfFontExistsTF{Hiragino Mincho ProN}
+  {\setmainjfont{Hiragino Mincho ProN}}
+  {\setmainjfont{HaranoAjiMincho-Regular}}
+\IfFontExistsTF{Hiragino Sans}
+  {\setsansjfont{Hiragino Sans}\setmonojfont{Hiragino Sans}}
+  {\setsansjfont{HaranoAjiGothic-Medium}\setmonojfont{HaranoAjiGothic-Medium}}
+
+\RequirePackage[a4paper,top=21mm,bottom=23mm,left=22mm,right=22mm,headheight=19pt,headsep=8mm,footskip=11mm]{geometry}
+\RequirePackage{microtype}
+\RequirePackage{xcolor}
+\definecolor{ReportInk}{HTML}{172735}
+\definecolor{ReportMuted}{HTML}{65727D}
+\definecolor{ReportRule}{HTML}{CBD2D8}
+\definecolor{ReportPale}{HTML}{F2F5F6}
+\definecolor{ReportNavy}{HTML}{244A64}
+\definecolor{ReportTeal}{HTML}{2A7F7F}
+\definecolor{ReportGreen}{HTML}{4F8768}
+\definecolor{ReportAmber}{HTML}{CC8A2F}
+\definecolor{ReportRed}{HTML}{BB4A4A}
+\definecolor{ReportPurple}{HTML}{75628F}
+\definecolor{ReportBlue}{HTML}{397CA5}
+\color{ReportInk}
+
+\RequirePackage{booktabs,longtable,array,calc,colortbl,etoolbox}
+\newcounter{none}
+\RequirePackage{enumitem}
+\setlist{nosep,leftmargin=1.5em}
+\setlist[enumerate]{itemsep=0.25em}
+\RequirePackage{titlesec}
+\setcounter{secnumdepth}{-1}
+\setcounter{tocdepth}{2}
+\titleformat{\section}[display]
+  {\sffamily\bfseries\fontsize{18}{21}\selectfont\color{ReportInk}}
+  {}{0pt}
+  {{\color{ReportNavy}\titlerule[1.2pt]}\vspace{6pt}\raggedright}
+\titlespacing*{\section}{0pt}{0pt}{2.2ex}
+\titleformat{\subsection}[block]
+  {\sffamily\bfseries\fontsize{13.5}{16}\selectfont\color{ReportInk}}
+  {}{0pt}{\raggedright}
+\titlespacing*{\subsection}{0pt}{2.7ex plus .8ex minus .4ex}{1ex}
+\titleformat{\subsubsection}[block]
+  {\sffamily\bfseries\fontsize{10.5}{13}\selectfont\color{ReportTeal}}
+  {}{0pt}{\raggedright}
+\titlespacing*{\subsubsection}{0pt}{2.1ex plus .6ex minus .3ex}{.7ex}
+\pretocmd{\section}{\clearpage}{}{}
+
+\RequirePackage{graphicx}
+\RequirePackage{float}
+\floatplacement{figure}{H}
+\setlength{\textfloatsep}{10pt}
+\setlength{\intextsep}{10pt}
+\RequirePackage{caption}
+\captionsetup{
+  labelformat=empty,
+  font={small,sf},
+  textfont={color=ReportMuted},
+  justification=raggedright,
+  singlelinecheck=false,
+  skip=6pt
+}
+
+\RequirePackage{listings}
+\lstset{
+  basicstyle=\ttfamily\fontsize{8.1}{10.1}\selectfont,
+  keywordstyle=\color{ReportBlue}\bfseries,
+  commentstyle=\color{ReportGreen},
+  stringstyle=\color{ReportPurple},
+  numbers=none,
+  frame=single,
+  framerule=0.35pt,
+  rulecolor=\color{ReportRule},
+  backgroundcolor=\color{ReportPale},
+  breaklines=true,
+  breakatwhitespace=false,
+  showstringspaces=false,
+  columns=fullflexible,
+  keepspaces=true,
+  tabsize=2,
+  xleftmargin=5pt,
+  xrightmargin=5pt,
+  aboveskip=8pt,
+  belowskip=8pt,
+  literate={→}{{$\rightarrow$}}2 {←}{{$\leftarrow$}}2 {×}{{$\times$}}1 {≤}{{$\leq$}}1 {≥}{{$\geq$}}1 {…}{{\ldots}}1
+}
+
+\RequirePackage{lscape}
+\RequirePackage[most]{tcolorbox}
+\renewenvironment{quote}
+  {\begin{tcolorbox}[
+    enhanced,
+    breakable,
+    colback=ReportPale,
+    colframe=ReportPale,
+    boxrule=0pt,
+    borderline west={2pt}{0pt}{ReportPurple},
+    sharp corners,
+    left=9pt,right=9pt,top=7pt,bottom=7pt,
+    before skip=8pt,after skip=8pt,
+    fontupper=\itshape
+  ]}
+  {\end{tcolorbox}}
+
+\newtcolorbox{reportabstract}{
+  enhanced,
+  breakable,
+  colback=white,
+  colframe=ReportRule,
+  boxrule=0.45pt,
+  borderline north={2pt}{0pt}{ReportNavy},
+  sharp corners,
+  left=12pt,right=12pt,top=10pt,bottom=10pt
+}
+\newtcolorbox{reportclaim}{
+  enhanced,
+  breakable,
+  colback=ReportPale,
+  colframe=ReportPale,
+  boxrule=0pt,
+  borderline west={3pt}{0pt}{ReportTeal},
+  sharp corners,
+  left=12pt,right=12pt,top=9pt,bottom=9pt
+}
+
+\newif\ifGachiCompactTable
+\GachiCompactTablefalse
+\AtBeginEnvironment{longtable}{%
+  \sffamily
+  \ifGachiCompactTable
+    \fontsize{6.9}{8.2}\selectfont
+    \setlength{\tabcolsep}{3pt}%
+    \renewcommand{\arraystretch}{1.05}%
+  \else
+    \footnotesize
+    \setlength{\tabcolsep}{3.2pt}%
+    \renewcommand{\arraystretch}{1.22}%
+  \fi
+}
+\arrayrulecolor{ReportRule}
+\renewcommand{\toprule}{\arrayrulecolor{ReportInk}\specialrule{0.8pt}{0pt}{0pt}\arrayrulecolor{ReportRule}}
+\renewcommand{\midrule}{\specialrule{0.4pt}{0pt}{0pt}}
+\renewcommand{\bottomrule}{\arrayrulecolor{ReportInk}\specialrule{0.8pt}{0pt}{0pt}\arrayrulecolor{ReportRule}}
+
+\RequirePackage{fancyhdr}
+\fancypagestyle{gachireport}{
+  \fancyhf{}
+  \fancyhead[L]{\sffamily\fontsize{7.5}{9}\selectfont\color{ReportMuted}\ReportSeries}
+  \fancyhead[R]{\sffamily\fontsize{7.5}{9}\selectfont\color{ReportTeal}\ReportRunningTitle}
+  \fancyfoot[L]{\sffamily\fontsize{7.5}{9}\selectfont\color{ReportMuted}\ReportID}
+  \fancyfoot[R]{\sffamily\fontsize{7.5}{9}\selectfont\color{ReportMuted}PAGE \thepage}
+  \renewcommand{\headrulewidth}{0.35pt}
+  \renewcommand{\footrulewidth}{0pt}
+  \renewcommand{\headrule}{\hbox to\headwidth{\color{ReportRule}\leaders\hrule height \headrulewidth\hfill}}
+}
+
+\RequirePackage{xurl}
+\RequirePackage{hyperref}
+\RequirePackage{bookmark}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=ReportNavy,
+  citecolor=ReportTeal,
+  urlcolor=ReportBlue,
+  pdfborder={0 0 0}
+}
+\urlstyle{same}
+
+\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\providecommand{\passthrough}[1]{#1}
+\providecommand{\real}[1]{#1}
+\providecommand{\pandocbounded}[1]{#1}
+\providecommand{\square}{\mdlgwhtsquare}
+\makeatletter
+\define@key{Gin}{alt}{}
+\makeatother
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.48em plus 0.12em minus 0.08em}
+\emergencystretch=2.5em

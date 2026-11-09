@@ -1,0 +1,103 @@
+\documentclass[10pt,a4paper]{article}
+
+\newcommand{\ReportSeries}{BOUNDARY-PRESERVING SYSTEMS RESEARCH SERIES}
+\newcommand{\ReportRunningTitle}{BOUNDARY-PRESERVING ALIGNMENT / V1.1}
+\newcommand{\ReportID}{TR-BPS-ALIGNMENT-1.1}
+\usepackage{gachi-report}
+\GachiCompactTabletrue
+
+\hypersetup{
+  pdftitle={Boundary-Preserving Alignment},
+  pdfauthor={Kentaro Sato},
+  pdfsubject={Implementing safety in long-horizon human-AI systems through the governance of authority promotion},
+  pdfkeywords={AI safety, AI alignment, bounded artifacts, bounded authority, authority promotion, human oversight, auditability}
+}
+
+\begin{document}
+
+\hypersetup{pageanchor=false}
+\begin{titlepage}
+\thispagestyle{empty}
+\sffamily
+
+{\fontsize{8.2}{10}\selectfont\bfseries\color{ReportNavy} BOUNDARY-PRESERVING SYSTEMS RESEARCH SERIES}\hfill
+{\fontsize{8.2}{10}\selectfont\color{ReportTeal} VOLUME III}
+
+\vspace{4mm}
+{\color{ReportRule}\rule{\textwidth}{0.7pt}}
+
+\vspace{14mm}
+{\fontsize{29}{33}\selectfont\bfseries\color{ReportInk}
+Boundary-Preserving\par
+Alignment\par}
+
+\vspace{7mm}
+{\fontsize{11.4}{15}\selectfont\bfseries\color{ReportTeal}
+From Bounded Artifacts to Bounded Authority\par}
+
+\vspace{3mm}
+{\fontsize{10.2}{13.5}\selectfont\color{ReportMuted}
+Implementing Safety in Long-Horizon Human--AI Systems\par
+Through the Governance of Authority Promotion\par}
+
+\vspace{12mm}
+{\fontsize{11}{14}\selectfont\bfseries Kentaro Sato\par}
+{\fontsize{9}{12}\selectfont\color{ReportMuted}Independent Researcher\par
+\href{mailto:info@metaclan.jp}{info@metaclan.jp}\par}
+
+\vfill
+
+\begin{reportclaim}
+{\sffamily\fontsize{8}{10}\selectfont\bfseries\color{ReportTeal} CENTRAL POSITION}\par\smallskip
+{\rmfamily\fontsize{10.4}{13.8}\selectfont\raggedright
+Exploration may be broad. Authority must be narrow, use-specific, time-bounded, and \mbox{revalidatable}. A bounded artifact may be promoted only into bounded authority, and every transition into display, execution, persistence, publication, or reinjection must preserve the distinctions that justify that use.\par}
+\end{reportclaim}
+
+\vspace{8mm}
+\begin{minipage}[t]{0.23\textwidth}
+\centering{\fontsize{20}{22}\selectfont\bfseries\color{ReportNavy}7}\par
+{\fontsize{7.2}{9}\selectfont\color{ReportMuted}CORE\ PROPOSITIONS}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.23\textwidth}
+\centering{\fontsize{20}{22}\selectfont\bfseries\color{ReportBlue}5}\par
+{\fontsize{7.2}{9}\selectfont\color{ReportMuted}RELEASE\ CONDITIONS}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.23\textwidth}
+\centering{\fontsize{20}{22}\selectfont\bfseries\color{ReportTeal}8}\par
+{\fontsize{7.2}{9}\selectfont\color{ReportMuted}HUMANFIT\ CONDITIONS}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.23\textwidth}
+\centering{\fontsize{20}{22}\selectfont\bfseries\color{ReportAmber}9}\par
+{\fontsize{7.2}{9}\selectfont\color{ReportMuted}TESTABLE\ HYPOTHESES}
+\end{minipage}
+
+\vspace{10mm}
+{\fontsize{8}{10}\selectfont\color{ReportMuted}
+Position Paper on AI Safety and Alignment \textbullet{} English Revised Edition v1.1\par}
+{\fontsize{7.5}{10}\selectfont\color{ReportMuted}
+5 November 2026 \textbullet{} TR-BPS-ALIGNMENT-1.1\par
+DOI: \href{https://doi.org/10.5281/zenodo.23969376}{10.5281/zenodo.23969376}\par}
+\end{titlepage}
+
+\hypersetup{pageanchor=true}
+\pagestyle{gachireport}
+\pagenumbering{roman}
+
+\section{Reader's Note}
+\input{preface.tex}
+
+\section{Abstract}
+\begin{reportabstract}
+\fontsize{9.1}{11.2}\selectfont
+\setlength{\parskip}{0.34em}
+\input{abstract.tex}
+\end{reportabstract}
+
+\clearpage
+\tableofcontents
+
+\clearpage
+\pagenumbering{arabic}
+\input{body.tex}
+
+\end{document}

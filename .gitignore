@@ -1,0 +1,11 @@
+.DS_Store
+__pycache__/
+*.pyc
+/tex/*.aux
+/tex/*.log
+/tex/*.toc
+/tex/*.out
+/tex/*.fls
+/tex/*.fdb_latexmk
+/tex/*.synctex.gz
+/tex/main.pdf

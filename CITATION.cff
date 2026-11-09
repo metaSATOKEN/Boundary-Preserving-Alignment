@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+message: "Please cite the archived paper using this metadata and its Zenodo DOI."
+type: article
+title: >-
+  Boundary-Preserving Alignment: From Bounded Artifacts to Bounded Authority:
+  Implementing Safety in Long-Horizon Human-AI Systems Through the Governance
+  of Authority Promotion
+authors:
+  - family-names: Sato
+    given-names: Kentaro
+    affiliation: Independent Researcher
+    email: info@metaclan.jp
+version: "1.1"
+date-released: 2026-11-05
+doi: 10.5281/zenodo.23969376
+url: https://doi.org/10.5281/zenodo.23969376
+repository-code: https://github.com/metaSATOKEN/Boundary-Preserving-Alignment
+keywords:
+  - AI safety
+  - AI alignment
+  - bounded artifacts
+  - bounded authority
+  - authority promotion
+  - human oversight
+  - provenance
+  - auditability
